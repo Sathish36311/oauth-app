@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.container {
+    position: relative;
+    width: 850px;
+    height: 550px;
+    border-radius: 30px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+    display: flex;
+    transition: all 0.6s ease-in-out;
+}
+
+.form-box {
+    width: 50%;
+    padding: 50px;
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.login {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.container.active .login {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.container.active .register {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: none;
+    border-radius: 8px;
+    background: #f0f0f0;
+    font-size: 15px;
+}
+
+.input-box i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 18px;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #6ea8fe;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #4a90e2;
+}
+
+.forgot {
+    font-size: 14px;
+    color: #6ea8fe;
+    display: block;
+    text-align: right;
+    margin-bottom: 15px;
+    text-decoration: none;
+}
+
+.or {
+    text-align: center;
+    font-size: 14px;
+    margin: 20px 0 10px;
+    color: #888;
+}
+
+.social-icons {
+    text-align: center;
+}
+
+.social-icons i {
+    font-size: 22px;
+    margin: 0 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.social-icons i:hover {
+    background: #6ea8fe;
+    color: #fff;
+    border-color: #6ea8fe;
+}
+
+.wave-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, #6ea8fe, #4a90e2);
+    color: #fff;
+    clip-path: ellipse(75% 100% at 50% 50%);
+    transition: all 0.6s ease-in-out;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.container.active .wave-panel {
+    right: 50%;
+    width: 50%;
+    clip-path: ellipse(100% 100% at 75% 50%);
+}
+
+.wave-panel .content {
+    padding: 20px;
+}
+
+.wave-panel h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.wave-panel p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.toggle-btn {
+    background: transparent;
+    border: 2px solid #fff;
+    padding: 10px 25px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background: #fff;
+    color: #4a90e2;
+}

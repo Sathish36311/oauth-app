@@ -1,0 +1,65 @@
+<div class="container" [class.active]="isLoginMode">
+    <section class="form-box register">
+        <h2>Register</h2>
+        <form>
+            <div class="input-box">
+                <input type="text" placeholder="Username" required />
+                <i class="bx bxs-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="email" placeholder="Email" required />
+                <i class="bx bxs-envelope"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" required />
+                <i class="bx bxs-lock"></i>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <p class="or">or register with social platforms</p>
+            <div class="social-icons">
+                <i class="bx bxl-google" (click)="signInWithGoogle()"></i>
+                <i class="bx bxl-facebook"></i>
+                <i class="bx bxl-github"></i>
+                <i class="bx bxl-linkedin"></i>
+            </div>
+        </form>
+    </section>
+
+    <section class="form-box login">
+        <h2>Login</h2>
+        <form>
+            <div class="input-box">
+                <input type="text" placeholder="Username" required />
+                <i class="bx bxs-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" required />
+                <i class="bx bxs-lock"></i>
+            </div>
+            <a href="#" class="forgot">Forgot Password?</a>
+            <button type="submit" class="btn">Login</button>
+            <p class="or">or login with social platforms</p>
+            <div class="social-icons">
+                <i class="bx bxl-google" (click)="signInWithGoogle()"></i>
+                <i class="bx bxl-facebook"></i>
+                <i class="bx bxl-github"></i>
+                <i class="bx bxl-linkedin"></i>
+            </div>
+        </form>
+    </section>
+
+    <div class="wave-panel">
+        <div class="content">
+            <div *ngIf="!isLoginMode">
+                <h2>Welcome Back!</h2>
+                <p>Already have an account?</p>
+                <button class="toggle-btn" (click)="toggleForm()">Login</button>
+            </div>
+            <div *ngIf="isLoginMode">
+                <h2>Hello Again!</h2>
+                <p>Don't have an account?</p>
+                <button class="toggle-btn" (click)="toggleForm()">Register</button>
+            </div>
+        </div>
+    </div>
+</div>
