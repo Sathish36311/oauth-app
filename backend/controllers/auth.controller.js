@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const axios = require("axios");
+const { Op } = require('sequelize')
 const db = require("../models");
 const User = db.user;
 
@@ -14,16 +15,29 @@ const {
 // Register Controller
 exports.register = async (req, res) => {
   try {
-    const { username, password } = req.body;
-    const existingUser = await User.findOne({ where: { username } });
+    let { username, email, password } = req.body;
+    // Check if username or email already exists
+    const existingUser = await User.findOne({
+      where: {
+        [Op.or]: [
+          { username: username },
+          { email: email }
+        ]
+      }
+    });
+
     if (existingUser) {
-      return res.status(400).json({ message: "User already exists" });
+      return res.status(400).json({ message: "Username or email already taken" });
     }
 
+    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
-    await User.create({ username, password: hashedPassword });
+
+    // Create user
+    await User.create({ username: username, email: email, password: hashedPassword });
 
     res.status(201).json({ message: "User registered successfully" });
+
   } catch (error) {
     console.error("Register Error:", error);
     res.status(500).json({ message: "Internal server error" });
@@ -47,7 +61,7 @@ exports.login = async (req, res) => {
       { expiresIn: "15m" }
     );
 
-    res.json({ message: "Login successful", token });
+    res.json({ message: "Login successful", accessToken: token });
   } catch (error) {
     console.error("Login Error:", error);
     res.status(500).json({ message: "Internal server error" });
