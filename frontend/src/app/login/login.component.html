@@ -14,7 +14,7 @@
                 <input type="password" placeholder="Password" name="password" ngModel required />
                 <i class="bx bxs-lock"></i>
             </div>
-            <button type="submit" class="btn"
+            <button type="submit" class="common-button btn"
                 [disabled]="registerForm.invalid || !registerForm.touched">Register</button>
             <p class="or">or register with social platforms</p>
             <div class="social-icons">
@@ -38,7 +38,7 @@
                 <i class="bx bxs-lock"></i>
             </div>
             <a href="#" class="forgot">Forgot Password?</a>
-            <button type="submit" class="btn" [disabled]="loginForm.invalid || !loginForm.touched">Login</button>
+            <button type="submit" class="common-button btn" [disabled]="loginForm.invalid || !loginForm.touched">Login</button>
             <p class="or">or login with social platforms</p>
             <div class="social-icons">
                 <i class="bx bxl-google" (click)="signInWithGoogle()"></i>

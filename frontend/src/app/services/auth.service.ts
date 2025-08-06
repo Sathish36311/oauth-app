@@ -5,12 +5,13 @@ import { HttpClient } from '@angular/common/http';
 import { LoginRequest } from '../models/login-request.model';
 import { LoginResponse } from '../models/login-response.model';
 import { RegisterRequest } from '../models/register-request.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   private readonly authUrl = environment.apiUrl + '/api/auth';
 
@@ -24,6 +25,11 @@ export class AuthService {
 
   register(request: RegisterRequest): Observable<any> {
     return this.http.post<any>(`${this.authUrl}/register`, request, { withCredentials: true });
+  }
+
+  logout(): void {
+    localStorage.removeItem('access_token');
+    this.router.navigate(['/login']);
   }
 
 }

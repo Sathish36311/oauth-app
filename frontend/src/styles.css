@@ -11,4 +11,18 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background: linear-gradient(to right, #74ebd5, #9face6);
+}
+
+.common-button {
+    background: #6ea8fe;
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.common-button:hover {
+    background: #4a90e2;
 }

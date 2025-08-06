@@ -63,18 +63,8 @@
 .btn {
     width: 100%;
     padding: 12px;
-    background: #6ea8fe;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
     border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.btn:hover {
-    background: #4a90e2;
+    font-size: 16px;
 }
 
 .forgot {
